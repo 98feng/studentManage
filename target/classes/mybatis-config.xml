@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--settings：控制mybatis全局行为-->
+<!--    <settings>-->
+        <!--设置mybatis输出日志-->
+<!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+<!--    </settings>-->
+
+    <properties resource="jdbc.properties"/>
+
+    <typeAliases>
+        <package name="fun.gmfsf.studentManage.settings.domain"/>
+        <package name="fun.gmfsf.studentManage.workbench.domain"/>
+    </typeAliases>
+
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.user}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+
+    <!--sql映射文件的位置-->
+    <!--这个包中所有mapper文件都加载-->
+    <mappers>
+        <package name="fun.gmfsf.studentManage.settings.dao"/>
+        <package name="fun.gmfsf.studentManage.workbench.dao"/>
+    </mappers>
+</configuration>
